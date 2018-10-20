@@ -1,0 +1,19 @@
+<div class="card" [class.is-flipped]="card.isFlipped">
+  <div class="face front" (click)="card.isFlipped = true">
+    <div class="left">
+      {{card.name}} {{card.suit}}
+    </div>
+    <div class="center">
+      <h2>{{card.ruleName}}</h2>
+      <div>
+        {{card.rule}}
+      </div>
+    </div>
+    <div class="right">
+      {{card.suit}} {{card.name}}
+    </div>
+  </div>
+  <div class="face back" (click)="card.isFlipped = false">
+    BACK
+  </div>
+</div>

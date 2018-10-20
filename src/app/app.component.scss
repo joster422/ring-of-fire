@@ -1,0 +1,19 @@
+:host {
+  > * {
+    position: absolute;
+    padding-bottom: 750px;
+    $item-count: 52;
+    $circle-size: 20em;
+    $angle: (720 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: translate($circle-size) rotate($rot * -1deg);
+        z-index: $i;
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}

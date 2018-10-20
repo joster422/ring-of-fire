@@ -1,0 +1,46 @@
+.card {
+  backface-visibility: hidden;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 250px;
+  height: 350px;
+  transform-origin: center right;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.front {
+  background: white;
+  border-radius: 15px;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.back {
+  background: red;
+  border-radius: 15px;
+  transform: rotateY(180deg);
+}
+
+.face.front {
+  padding: 0 2em;
+  .left {
+    text-align: right;
+  }
+  .center {
+    align-self: center;
+  }
+  .right {
+    align-self: flex-end;
+  }
+}
