@@ -14,4 +14,11 @@ export class CardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  clickFace() {
+    if (this.card.isFlipped) {
+      this.card.isActive = false
+    }
+    this.card.isFlipped = true
+  }
 }

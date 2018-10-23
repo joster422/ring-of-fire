@@ -1,1 +1,1 @@
-<rof-card *ngFor="let card of deck" [card]="card"></rof-card>
+<rof-card *ngFor="let card of deck" [card]="card" [class.is-flipped]="card.isFlipped" [hidden]="!card.isActive"></rof-card>

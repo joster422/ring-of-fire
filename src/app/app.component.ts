@@ -10,23 +10,27 @@ export class AppComponent {
   deck: Card[]
 
   constructor() {
-    this.deck = suits.reduce((accumulator, suit) => {
+    this.deck = this.createDeck()
+    this.shuffleDeck()
+  }
+
+  private createDeck(): Card[] {
+    return suits.reduce((accumulator, suit) => {
       return accumulator.concat(
-        cardFaces.map(cardFace =>
-          Object.assign({ isActive: true, isFlipped: false, suit }, cardFace)
+        cardFaces.map(
+          cardFace =>
+            new Card(cardFace.name, cardFace.rule, cardFace.ruleName, suit)
         )
       )
     }, [])
   }
 
-  clickCard(card: Card) {
-    card.isFlipped = false
-
-    if (this.deck.every(card => !card.isFlipped)) {
-      this.deck = this.deck.map(card => {
-        card.isFlipped = true
-        return card
-      })
+  private shuffleDeck() {
+    for (let i = this.deck.length - 1; i > 0; i--) {
+      let randomIndex = Math.floor(Math.random() * (i + 1))
+      var temp = this.deck[i]
+      this.deck[i] = this.deck[randomIndex]
+      this.deck[randomIndex] = temp
     }
   }
 }

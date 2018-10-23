@@ -1,19 +1,14 @@
-:host {
-  > * {
-    position: absolute;
-    padding-bottom: 750px;
-    $item-count: 52;
-    $circle-size: 20em;
-    $angle: (720 / $item-count);
-    $rot: 0;
+rof-card {
+  $item-count: 52;
+  $angle: (360 / 52);
+  $rot: 0;
 
-    @for $i from 1 through $item-count {
-      &:nth-of-type(#{$i}) {
-        transform: translate($circle-size) rotate($rot * -1deg);
-        z-index: $i;
-      }
-
-      $rot: $rot + $angle;
+  @for $i from 1 through $item-count {
+    &:nth-of-type(#{$i}) {
+      transform: rotate($rot * 1deg) translate(35em) rotate($rot * -45deg);
+      z-index: $i;
     }
+
+    $rot: $rot + $angle;
   }
 }

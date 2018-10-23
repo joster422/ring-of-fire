@@ -1,46 +1,53 @@
-.card {
-  backface-visibility: hidden;
-  border: 1px solid black;
-  border-radius: 15px;
+:host {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 250px;
   height: 350px;
-  transform-origin: center right;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
-.is-flipped {
-  transform: rotateY(180deg);
-}
-
-.front {
-  background: white;
+  margin-left: -(250px / 2);
+  margin-top: -(350px / 2);
+  border: 1px solid black;
   border-radius: 15px;
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
+  text-align: center;
+
+  transform-style: preserve-3d;
+  transition: transform 1s;
+
+  &.is-flipped {
+    transform: rotateY(180deg) !important;
+    z-index: 53 !important;
+  }
 }
 
 .face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   backface-visibility: hidden;
 }
 
-.back {
-  background: red;
+.front {
   border-radius: 15px;
+  display: flex;
+  flex-flow: row nowrap;
   transform: rotateY(180deg);
-}
 
-.face.front {
-  padding: 0 2em;
+  h2 {
+    margin-top: 0;
+  }
   .left {
-    text-align: right;
+    align-self: flex-start;
+    margin-left: 5px;
+    margin-top: 5px;
   }
   .center {
     align-self: center;
+    flex-grow: 1;
   }
   .right {
     align-self: flex-end;
+    margin-bottom: 5px;
+    margin-right: 5px;
   }
 }
